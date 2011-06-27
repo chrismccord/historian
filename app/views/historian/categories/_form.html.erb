@@ -1,0 +1,21 @@
+<%= form_for @category do |f| %>
+  <div class="inputs">
+    <p>
+      <%= f.label 'name :' %>
+      <%= f.text_field :name %>
+    </p>
+    
+    <p>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </p>
+    
+    <p>
+      <%= f.label :metrics %>
+      <%= f.text_area :metric_config, :value => @category.metric_config && @category.metric_config.join("\r") %>
+    </p>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>
