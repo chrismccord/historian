@@ -7,13 +7,14 @@ module Historian
     DEFAULT_AUTO_CREATE         = true
     DEFAULT_MAX_COLUMNS         = 10
     DEFAULT_TIMESTAMP_FORMAT    = '%m/%d/%Y'
-    
+    DEFAULT_MOUNT_POINT         = 'historian'
     attr_accessor :layout,
                   :before_filters, 
                   :records_per_page,
                   :auto_create,
                   :max_columns,
-                  :timestamp_format
+                  :timestamp_format,
+                  :mount_point
     
     # set all configuration options to their default values
     def self.extended(base)
@@ -31,6 +32,7 @@ module Historian
       self.auto_create       = DEFAULT_AUTO_CREATE
       self.max_columns       = DEFAULT_MAX_COLUMNS
       self.timestamp_format  = DEFAULT_TIMESTAMP_FORMAT
+      self.mount_point       = DEFAULT_MOUNT_POINT
     end
   end
 end
