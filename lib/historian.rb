@@ -1,7 +1,7 @@
 require "historian/version"
 require "historian/errors"
 require "historian/configuration"
-
+require 'historian/engine' if defined?(Rails)
 
 module Historian
   extend Configuration
