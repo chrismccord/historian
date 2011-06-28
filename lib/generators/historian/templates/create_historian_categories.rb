@@ -3,7 +3,8 @@ class CreateHistorianCategories < ActiveRecord::Migration
     create_table :historian_categories do |t|
       t.string :name
       t.string :title
-      t.text :metric_config
+      t.text :metric_keys
+      t.text :metric_titles
       t.text   :annotation
       t.timestamps
     end

@@ -18,7 +18,14 @@ module Historian
   end
 
   def self.record(category_name, record_values)
+
     category = HistorianCategory.find_by_name(category_name)
+    if category.nil? && Historian.auto_create
+      category = HistorianCategory.create(:name => category_name.to_s,
+                                          :title => category_name.to_s.humanize,
+                                          :metric_keys => record_values.collect{|key, value| key.to_s },
+                                          :metric_titles => record_values.collect{|key, value| key.to_s.humanize })
+    end
     raise CategoryNotFound, "'#{category_name}' does not exist" if category.nil?
     new_record = HistorianRecord.new(:category => category)
     record_values.collect do |key, value|

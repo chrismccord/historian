@@ -11,9 +11,20 @@
     </p>
     
     <p>
-      <%= f.label :metrics %>
-      <%= f.text_area :metric_config, :value => @category.metric_config && @category.metric_config.join("\r") %>
+      <%= f.label 'Metrics: key, title' %>
     </p>
+      <% @category.metric_keys.each_with_index do |key, i| %>    
+        <p>
+          <%= text_field_tag 'historian_category[metric_keys][]', key %>
+          <%= text_field_tag 'historian_category[metric_titles][]', @category.metric_titles[i] %>
+        </p>    
+      <% end %>
+      <% (Historian.max_columns - @category.metric_keys.count).times do |i| %>
+        <p>
+          <%= text_field_tag 'historian_category[metric_keys][]' %>
+          <%= text_field_tag 'historian_category[metric_titles][]' %>
+        </p>
+      <% end %>
   </div>
   <div class="actions">
     <%= f.submit 'Save' %>

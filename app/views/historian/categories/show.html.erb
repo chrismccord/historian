@@ -10,7 +10,7 @@
         <thead>
           <tr>
             <th>Date</th>
-            <% @category.metric_config.each do |metric_title| %>
+            <% @category.metric_titles.each do |metric_title| %>
               <th><%= metric_title %></th>
             <% end %>
             <th>Delete</th>
@@ -19,9 +19,9 @@
         <tbody>
         <% @records.each do |record| %>
           <tr>
-            <td><%= record.created_at.strftime('%m/%d/%Y') %></td>
-            <% @category.metric_config.each do |metric_title| %>
-              <% metric = record.metrics.find_by_name(metric_title.downcase.gsub(" ", "_")) %>
+            <td><%= record.created_at.strftime(Historian.timestamp_format) %></td>
+            <% @category.metric_keys.each do |metric_key| %>
+              <% metric = record.metrics.find_by_name(metric_key) %>
               <% if metric %>
                 <td><%= YAML.load(metric.value) %></td>
               <% else%>
