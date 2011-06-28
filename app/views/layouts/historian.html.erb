@@ -1,0 +1,15 @@
+<!DOCTYPE html> 
+<html lang='en' xmlns='http://www.w3.org/1999/xhtml'> 
+  <head> 
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'> 
+    <title>Historian</title> 
+    <%= stylesheet_link_tag 'historian' %>
+  </head> 
+  <body>
+    <div class="historian-notice"><%= flash[:notice] %></div>
+    <div id="historian-container">
+      <%= yield %>
+    </div>
+    
+  </body>
+</html>

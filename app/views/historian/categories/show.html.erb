@@ -1,40 +1,35 @@
-<div class="block">
-  <div class="content">
-    <div id="content-header">
-      <h2 class="title">History - <%= @category.title %></h2>
-    </div>
-    
-    <div class="inner">
-      
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <% @category.metric_titles.each do |metric_title| %>
-              <th><%= metric_title %></th>
-            <% end %>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @records.each do |record| %>
-          <tr>
-            <td><%= record.created_at.strftime(Historian.timestamp_format) %></td>
-            <% @category.metric_keys.each do |metric_key| %>
-              <% metric = record.metrics.find_by_name(metric_key) %>
-              <% if metric %>
-                <td><%= YAML.load(metric.value) %></td>
-              <% else%>
-                <td></td>
-              <% end%>
-            <% end %>
-            <td><%=button_to '[x]', historian_record_path(record, :historian_category_id => @category.id), :method => :delete %></td>
-          </tr>
+<div id="historian-container">
+  <%= render 'nav' %>
+
+  <h1>History - <%= @category.title %></h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <% @category.metric_titles.each do |metric_title| %>
+          <th><%= metric_title %></th>
         <% end %>
-        </tbody>
-      </table>
-      <%= will_paginate @records %>
-      <br/>
-    </div>
-  </div>
+        <th class="delete">[x]</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @records.each do |record| %>
+      <tr>
+        <td><%= record.created_at.strftime(Historian.timestamp_format) %></td>
+        <% @category.metric_keys.each do |metric_key| %>
+          <% metric = record.metrics.find_by_name(metric_key) %>
+          <% if metric %>
+            <td><%= YAML.load(metric.value) %></td>
+          <% else%>
+            <td></td>
+          <% end%>
+        <% end %>
+        <td class="delete"><%=button_to '[x]', historian_record_path(record, :historian_category_id => @category.id), :method => :delete %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @records %>
 </div>
+

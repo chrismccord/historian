@@ -1,7 +1,7 @@
 module Historian
   module Configuration
 
-    DEFAULT_LAYOUT              = nil
+    DEFAULT_LAYOUT              = 'historian'
     DEFAULT_BEFORE_FILTERS      = []
     DEFAULT_RECORDS_PER_PAGE    = 60
     DEFAULT_AUTO_CREATE         = true

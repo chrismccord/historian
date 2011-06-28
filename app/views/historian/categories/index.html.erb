@@ -1,33 +1,26 @@
-<div class="block">
-  <div class="content">
-    <div id="content-header">
-      <h2 class="title">History</h2>
-      <%= link_to "New Category", new_historian_category_path %>
-      
-    </div>
+<div id="historian-container">
+  <%= render 'nav' %>
+
+  <h1>History</h1>
     
-    <div class="inner">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Category</th>
-            <th>Number of records</th>
-            <th>Edit</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @categories.each do |cat| %>
-          <tr>
-            <td><%= link_to cat.title, cat %></td>
-            <td><%= cat.records.count %></td>
-            <td><%= link_to 'edit', edit_historian_category_path(cat) %></td>
-            <td><%= button_to '[x]', cat, :method => :delete, :confirm => "Are you sure?" %></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
-      <br/>
-    </div>
-  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Number of records</th>
+        <th>Edit</th>
+        <th class="delete">[x]</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @categories.each do |cat| %>
+      <tr>
+        <td><%= link_to cat.title, cat %></td>
+        <td><%= cat.records.count %></td>
+        <td><%= link_to 'edit', edit_historian_category_path(cat) %></td>
+        <td class="delete"><%= button_to '[x]', cat, :method => :delete, :confirm => "Are you sure?" %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
