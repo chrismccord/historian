@@ -1,8 +1,15 @@
 class HistorianCategory < ActiveRecord::Base
+
   has_many :records, :class_name => 'HistorianRecord'
+
   serialize :metric_keys, Array
   serialize :metric_titles, Array
 
+  # Validations
+  validates_presence_of :name
+  validates_presence_of :title
+
+  # Callbacks
   before_save :remove_empty_metrics
   
   def remove_empty_metrics

@@ -7,16 +7,17 @@ module Historian
   extend Configuration
   
   def self.categories
-    # @categories ||= @@config.collect do |key, attributes|
-    #      Category.new(:key => key, :title => attributes["title"], :records => attributes["records"])
-    #    end
     HistorianCategory.all
   end
   
   def self.history_for(category_name)
-    HistorianRecord.where("historian_category_id = ?", HistorianCategory.find_by_name(category_name).id).order('created_at DESC')    
+    HistorianRecord.where("historian_category_id = ?", HistorianCategory.find_by_name(category_name).id).order('created_at DESC') rescue nil   
   end
 
+  # Record values for given category name.
+  # Autocreates new category with inferred titles from hash keys if category does not exist
+  # and Historian.auto_create is true, raises not found error otherwise
+  #
   def self.record(category_name, record_values)
 
     category = HistorianCategory.find_by_name(category_name)
