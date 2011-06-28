@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Chris McCord"]
   s.email       = ["chris@chrismccord.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Track arbitrary metrics from your application}
+  s.description = %q{Historian records a history of arbitrary metrics from your application such as tracking history of cached daily metrics that are otherwise overwritten.}
 
   s.rubyforge_project = "historian"
 
