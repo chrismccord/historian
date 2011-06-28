@@ -21,9 +21,9 @@ class HistorianTest < Test::Unit::TestCase
         assert Historian.categories.find_by_name(:new).metric_titles.include?("Field2")
         assert Historian.categories.find_by_name(:new).metric_titles.include?("Field three")
 
-        assert "value1", Historian.history_for(:new).first.metrics.find_by_name(:field1).value
-        assert "value2", Historian.history_for(:new).first.metrics.find_by_name(:field1).value
-        assert "value3", Historian.history_for(:new).first.metrics.find_by_name(:field1).value                
+        assert_equal "value1", Historian.history_for(:new).first.metrics.find_by_name(:field1).value
+        assert_equal "value2", Historian.history_for(:new).first.metrics.find_by_name(:field1).value
+        assert_equal "value3", Historian.history_for(:new).first.metrics.find_by_name(:field1).value                
       end
     end
     
@@ -39,9 +39,9 @@ class HistorianTest < Test::Unit::TestCase
                                                  :field2 => "value2",
                                                  :field_three => "value3"})
        assert_equal 2, Historian.history_for(:some_category).count
-       assert "value1", Historian.history_for(:some_category).last.metrics.find_by_name(:field1).value
-       assert "value2", Historian.history_for(:some_category).last.metrics.find_by_name(:field1).value
-       assert "value3", Historian.history_for(:some_category).last.metrics.find_by_name(:field1).value                                                 
+       assert_equal "value1", Historian.history_for(:some_category).last.metrics.find_by_name(:field1).value
+       assert_equal "value2", Historian.history_for(:some_category).last.metrics.find_by_name(:field1).value
+       assert_equal "value3", Historian.history_for(:some_category).last.metrics.find_by_name(:field1).value                                                 
       end
     end
     
