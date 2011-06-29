@@ -71,6 +71,9 @@
 .historian_form{
   margin-top: 14px;
 }
+.historian_form div{
+  clear: both;
+}
 .historian_form div.input {
   margin-bottom: 10px;
 }
@@ -109,15 +112,15 @@ label.collection_radio {
   margin-left:   2px;
 }
 
-.field_with_errors {
-  background-color: #ff3333;
+.field_with_errors{
+  display: inline;
 }
 
+.field_with_errors input{
+  background-color: #FF6B6B;
+}
 .historian_form .error {
-  clear:   left;
   color:   black;
-  display: block;
-  margin-left: 120px;
   font-size:    12px;
 }
 

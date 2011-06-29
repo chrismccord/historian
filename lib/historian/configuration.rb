@@ -1,13 +1,27 @@
 module Historian
   module Configuration
 
-    DEFAULT_LAYOUT              = 'historian'
-    DEFAULT_BEFORE_FILTERS      = []
-    DEFAULT_RECORDS_PER_PAGE    = 60
-    DEFAULT_AUTO_CREATE         = true
-    DEFAULT_MAX_COLUMNS         = 10
-    DEFAULT_TIMESTAMP_FORMAT    = '%m/%d/%Y'
-    DEFAULT_MOUNT_POINT         = 'historian'
+    # Layout of categories controller
+    DEFAULT_LAYOUT = 'historian'
+    
+    # Array of before filters to be applied to categories controller. Useful for authorization
+    DEFAULT_BEFORE_FILTERS = []
+    
+    # Records to display per page
+    DEFAULT_RECORDS_PER_PAGE = 60
+    
+    # Autocreate new category, inferring titles from hash keys, if given category does not exist, raise error if false
+    DEFAULT_AUTO_CREATE = true
+    
+    # Max allowed metrics per category, limited to accommodate table width in layout without overflow
+    DEFAULT_MAX_COLUMNS = 10
+    
+    # Format for Date/timestamp column in record table
+    DEFAULT_TIMESTAMP_FORMAT = '%m/%d/%Y'
+    
+    # Mount point of the engine, controllers will be scoped to the mount point
+    DEFAULT_MOUNT_POINT = 'historian'
+    
     attr_accessor :layout,
                   :before_filters, 
                   :records_per_page,
