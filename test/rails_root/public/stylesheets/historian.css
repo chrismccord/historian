@@ -1,0 +1,151 @@
+.historian-notice{
+  text-align: center;
+  font-size: 16px;
+  line-height: 30px;
+}
+/* historian */
+#historian-container {
+  font-family: 'Lucida Grande', Verdana, sans-serif;
+  font-size: 13px;
+  padding: 4px 14px 10px 14px;
+  background-color: #ffffff;
+}
+#historian-container h1{ 
+  font-size: 16px;
+  color: #444;
+  width: 98%;
+  background-color: #eeeeee;
+  padding: 8px;
+  margin-bottom: 18px;
+}
+#historian-container .table {
+  
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 98%;
+  margin: 0 auto;
+  margin-top: 8px;
+  border-right: 1px solid #e5e5e5;
+  border-left: 1px solid #e5e5e5;
+  border-top: 1px solid #e5e5e5;
+}
+#historian-container .table th.first {
+  width: 22px;
+  text-align: center;
+}
+#historian-container .table tr.selected { background-color: #ffffdd; }
+#historian-container .table th {
+  background: #e5e5e5;
+  color: #444444;
+  font-weight: bold;
+  padding: 6px;
+}
+#historian-container .table th a.toggle {
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: transparent url('/images/tick.png') center no-repeat;
+  text-indent: -9999px;
+  -moz-outline: none;
+}
+#historian-container .table td {
+  border-bottom: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
+  padding: 4px;
+}
+#historian-container .table .delete {
+  width: 44px;
+  text-align: center;
+}
+#historian-container .nav{
+  float: right;
+  padding-right: 14px;
+  padding-top: 24px;
+}
+#historian-container .nav a{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/* ----- SimpleForm Styles ----- */
+
+.historian_form{
+  margin-top: 14px;
+}
+.historian_form div.input {
+  margin-bottom: 10px;
+}
+
+.historian_form input[type="text"]{
+  width: 200px;
+  border: 1px solid #aaa;
+  font-size: 14px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.historian_form label {
+  float: left;
+  width: 100px;
+  text-align: left;
+  margin: 6px 10px;
+}
+.historian_form .metric_inputs{
+  margin-top: 26px;
+  margin-bottom: 4px;
+}
+div.boolean, .historian_form input[type='submit'] {
+  margin: 10px;
+}
+
+div.boolean label, label.collection_radio {
+  float: none;
+  margin: 0;
+}
+
+label.collection_radio {
+  margin-right: 10px;
+  vertical-align: -2px;
+  margin-left:   2px;
+}
+
+.field_with_errors {
+  background-color: #ff3333;
+}
+
+.historian_form .error {
+  clear:   left;
+  color:   black;
+  display: block;
+  margin-left: 120px;
+  font-size:    12px;
+}
+
+.historian_form .hint {
+  clear: left;
+  margin-left: 120px;
+  font-size:    12px;
+  color: #555;
+  display: block;
+  font-style: italic;
+}
+
+.historian_form .actions{
+
+}
+input.radio {
+  margin-right: 5px;
+  vertical-align: -3px;
+}
+
+input.check_boxes {
+  margin-left: 3px;
+  vertical-align: -3px;
+}
+
+label.collection_check_boxes {
+  float: none;
+  margin: 0;
+  vertical-align: -2px;
+  margin-left:   2px;
+}
