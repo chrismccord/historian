@@ -11,9 +11,9 @@ class HistorianTest < ActiveSupport::TestCase
           assert_nil HistorianCategory.find_by_name(:new)
           assert_nil Historian.history_for(:new)
         
-          assert Historian.record(:new, {:field1 => "value1",
-                                         :field2 => "value2",
-                                         :field_three => "value3"})
+          assert Historian.record(:new, :data => {:field1 => "value1",
+                                                  :field2 => "value2",
+                                                  :field_three => "value3"})
                                        
           assert HistorianCategory.find_by_name(:new)
           assert Historian.history_for(:new)
@@ -34,22 +34,22 @@ class HistorianTest < ActiveSupport::TestCase
           Historian.auto_create = false
         end
         should "raise CategoryNotFound error when adding record to undefined category" do
-          assert_raise(Historian::CategoryNotFound){ Historian.record(:non_existant_category, {:keys => "values"}) }
+          assert_raise(Historian::CategoryNotFound){ Historian.record(:non_existant_category, :data => {:keys => "values"}) }
         end
       end
     end
     
     context "when category exists" do
       setup do
-        assert Historian.record(:some_category, {:field1 => "value1",
-                                                 :field2 => "value2",
-                                                 :field3 => "value3"})
+        assert Historian.record(:some_category, :data => {:field1 => "value1",
+                                                          :field2 => "value2",
+                                                          :field3 => "value3"})
       end
       should "add new record to category with hash values" do
         assert_equal 1, Historian.history_for(:some_category).count
-        assert Historian.record(:some_category, {:field1 => "value1",
-                                                 :field2 => "value2",
-                                                 :field3 => "value3"})
+        assert Historian.record(:some_category, :data => {:field1 => "value1",
+                                                          :field2 => "value2",
+                                                          :field3 => "value3"})
        assert_equal 2, Historian.history_for(:some_category).count
        assert_equal "value1", YAML.load(Historian.history_for(:some_category).last.metrics.find_by_name(:field1).value)
        assert_equal "value2", YAML.load(Historian.history_for(:some_category).last.metrics.find_by_name(:field2).value)

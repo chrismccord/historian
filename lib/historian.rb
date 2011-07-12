@@ -11,7 +11,7 @@ module Historian
   end
   
   def self.history_for(category_name)
-    cat_id = HistorianCategory.find_by_name(category_name).id
+    cat_id = HistorianCategory.find_by_name(category_name).id rescue nil
     HistorianRecord.where("historian_category_id = ?", cat_id).order('created_at DESC') if cat_id
   end
 
