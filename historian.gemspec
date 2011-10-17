@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
   
-  s.add_dependency('will_paginate', '~> 3.0.pre2')
+  s.add_dependency('will_paginate', '>= 3.0.0')
   s.add_development_dependency('shoulda', '~> 2.11.3')
   s.add_development_dependency('mocha', '~> 0.9.11')  
 end
